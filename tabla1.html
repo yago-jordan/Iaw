@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de divisores</title>
+</head>
+<body>
+
+    <h2>Seleccionar rango de divisores</h2>
+
+    <form action="tabla2.php" method="POST">
+
+        <label>Primer número (1-10):</label>
+        <input type="number" name="numero1"
+               min="1" max="10" value="5" required>
+
+        <br><br>
+
+        <label>Segundo número (10-20):</label>
+        <input type="number" name="numero2"
+               min="10" max="20" value="16" required>
+
+        <br><br>
+
+        <input type="submit" value="Generar tabla">
+
+    </form>
+
+</body>
+</html>
