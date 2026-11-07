@@ -7,16 +7,16 @@ session_start();
 
 require_once "cabecera.php";
 
-// Comprobar que recibimos datos
+// Comprueba que recibimos
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     die("Acceso no permitido.");
 }
 
-// Recoger datos del formulario
+// Recoge datos del formulario
 $nombre = $_POST["nombre"];
 $clave = md5($_POST["clave"]);
 
-// Conectar con MySQL
+// Conecta con mysql
 $conexion = new mysqli(
     $servidor,
     $userBD,
@@ -29,22 +29,22 @@ if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
-// Crear consulta
+// Crea consulta
 $sql = "SELECT * FROM usuarios
         WHERE nombre = ? AND clave = ?";
 
-// Preparar consulta
+// Prepara consulta
 $stmt = $conexion->prepare($sql);
 
 $stmt->bind_param("ss", $nombre, $clave);
 
-// Ejecutar consulta
+// Ejecuta consulta
 $stmt->execute();
 
-// Obtener resultado
+// Obtiene resultado
 $resultado = $stmt->get_result();
 
-// Comprobar si existe el usuario
+// Comprueba si existe el usuario
 if ($resultado->num_rows > 0) {
 
     $_SESSION["usuario"] = $nombre;
@@ -60,7 +60,7 @@ if ($resultado->num_rows > 0) {
 
 }
 
-// Cerrar conexiones
+
 $stmt->close();
 $conexion->close();
 

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir libros</title>
+</head>
+
+<body>
+
+    <h1>Añadir un libro a la biblioteca</h1>
+
+    <form action="crealibro.php" method="POST">
+
+        <label>Nombre del libro:</label>
+        <input type="text" name="nombre" required>
+
+        <br><br>
+
+        <label>Autor:</label>
+        <input type="text" name="autor" required>
+
+        <br><br>
+
+        <label>ISBN:</label>
+        <input type="text" name="isbn" maxlength="13" required>
+
+        <br><br>
+
+        <label>Puntuación:</label>
+        <input type="number" name="puntuacion" min="0" max="10" required>
+
+        <br><br>
+
+        <label>Género:</label>
+        <input type="text" name="genero" required>
+
+        <br><br>
+
+        <input type="submit" value="Añadir libro">
+
+    </form>
+
+</body>
+</html>
